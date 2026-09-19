@@ -1,0 +1,64 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hero_material_001"]
+
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_albedo.png" id="1_albedo"]
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_normal.png" id="2_normal"]
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_roughness.png" id="3_roughness"]
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_metallic.png" id="4_metallic"]
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_emissive.png" id="5_emissive"]
+[ext_resource type="Texture2D" path="res://characters/hero/textures/hero_ao.png" id="6_ao"]
+
+[resource]
+resource_name = "HeroMaterial"
+transparency = 0
+shading_mode = 0
+vertex_color_use_as_albedo = false
+use_point_size = false
+point_size = 1.0
+fixed_size = false
+billboard_mode = 0
+billboard_keep_scale = false
+grow = false
+grow_amount = 0.0
+cull_mode = 0
+depth_draw_mode = 1
+no_depth_test = false
+use_as_top_level = false
+texture_filter = 3
+texture_repeat = 0
+blend_mode = 0
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_albedo")
+albedo_texture_msdf = false
+metallic = 0.15
+metallic_specular = 0.5
+metallic_texture = ExtResource("4_metallic")
+metallic_texture_channel = 0
+roughness = 0.75
+roughness_texture = ExtResource("3_roughness")
+roughness_texture_channel = 0
+emission_enabled = true
+emission = Color(0.2, 0.4, 0.8, 1)
+emission_energy_multiplier = 1.5
+emission_intensity_multiplier = 1.0
+emission_operator = 0
+emission_texture = ExtResource("5_emissive")
+normal_enabled = true
+normal_map = ExtResource("2_normal")
+normal_map_depth = 1.0
+ao_enabled = true
+ao_texture = ExtResource("6_ao")
+ao_texture_channel = 0
+ao_light_affect = 0.3
+rim_enabled = false
+clearcoat_enabled = true
+clearcoat = 0.3
+clearcoat_roughness = 0.2
+anisotropy_enabled = false
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.25
+subsurf_scatter_skin_mode = true
+backlight_enabled = false
+refraction_enabled = false
+proximity_fade_enabled = false
+distance_fade_mode = 0
+heightmap_enabled = false 
