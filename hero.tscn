@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://hero_scene_001"]
+
+[ext_resource type="PackedScene" path="res://characters/hero/hero.glb" id="1_mesh"]
+[ext_resource type="AnimationLibrary" path="res://characters/hero/animations/hero_animations.res" id="2_animlib"]
+[ext_resource type="AnimationNodeStateMachine" path="res://characters/hero/hero_state_machine.tres" id="3_fsm"]
+[ext_resource type="StandardMaterial3D" path="res://characters/hero/hero_materials.tres" id="4_mat"]
+
+[node name="Hero" type="CharacterBody3D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("hero_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_hero")
+
+[node name="Model" parent="." instance=ExtResource("1_mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+    "": ExtResource("2_animlib")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource("3_fsm")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="CameraTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hero"]
+radius = 0.3
+height = 1.7
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"] 
